@@ -7,7 +7,7 @@ class onScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LiquidSwipe(
-      pages: [],
+      pages: const [],
       enableLoop: true,
       fullTransitionValue: 500, // default is 400 milliseconds
       waveType: WaveType.liquidReveal,

@@ -1,7 +1,15 @@
+List<String> addr=[];
+List<String> cityadd=[];
+List<String> stateadd=[];
+List<int> pincode=[];
+List<int> mobnum = [];
+Map<String,dynamic> datamap={'Address':addr,'City':cityadd,'State':stateadd,'PinCode':pincode,'Mobile':mobnum};
+
+
 List<String> cartProduct=[];
 List<int> cartPrice=[];
 List<int> cartQuantity=[];
-var cart = {'Product':cartProduct,'Price':cartPrice,'Quantity':cartQuantity};
+Map<String,dynamic> cart = {'Product':cartProduct,'Price':cartPrice,'Quantity':cartQuantity};
 List<String> sweets=[
   //"Chocolate",
   //"Strawberry"

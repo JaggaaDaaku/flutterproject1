@@ -44,7 +44,7 @@ class _RestState extends State<Rest> {
               borderRadius: BorderRadius.circular(20)),
               margin: EdgeInsets.all(10),
               width: MediaQuery.of(context).size.width,
-              height: 150,
+              height: 100,
               child: Row(
                 children: [
                   Container(

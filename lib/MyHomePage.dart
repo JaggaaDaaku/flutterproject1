@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project1/Contantpage.dart';
 
@@ -14,15 +15,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
-      appBar: PreferredSize(child: AppBar(
-        title: Text('Home Page'),
-        centerTitle: true,
-        leading: Icon(Icons.home),
-        leadingWidth: 50,
-        actions: [
-          Icon(Icons.app_registration)
-        ]
-      ), preferredSize: Size.fromHeight(MediaQuery.of(context).size.height*0.1)),
       backgroundColor: Colors.blueAccent,
       body: Container(
         child: Column(
@@ -32,30 +24,42 @@ class _MyHomePageState extends State<MyHomePage> {
               width: MediaQuery.of(context).size.width,
               child: Column(
               children: [
-                for (int i = 0; i < st.length; i++) Text(st[i],style: TextStyle(fontSize: MediaQuery.of(context).size.height*0.065),)
+                for (int i = 0; i < st.length; i++) Text(st[i],style: TextStyle(fontSize: MediaQuery.of(context).size.height*0.069),)
               ],
             )),
+            Container(
+              height: 100,
+            ),
             ButtonTheme(
-              height: MediaQuery.of(context).size.height*0.05,
-              child: ElevatedButton(
+              height: MediaQuery.of(context).size.height*0.15,
+              child: FloatingActionButton.extended(
                 onPressed: () {
                   setState(() {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => contantPage()));
+                    Navigator.of(context,rootNavigator: true).push(
+                      new CupertinoPageRoute<bool>(
+                        fullscreenDialog: true,
+                        builder: (BuildContext context) => new  contantPage(),
+                        ),
+
+                        //MaterialPageRoute(builder: (context) => contantPage())
+                        );
                   });
                 },
-                child: Text(
+                label: Text(
                   "Let's Eat",
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 30,
                       fontStyle: FontStyle.italic),
                 ),
+                focusColor: Colors.amber,
               ),
+              
             
           )
           ],
         )
       ),
+      
     ));
   }
 }
