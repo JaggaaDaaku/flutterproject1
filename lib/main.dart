@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:project1/MyHomePage.dart';
-import 'package:project1/category_screen.dart';
 void main() {
   runApp(const MyApp());
 }

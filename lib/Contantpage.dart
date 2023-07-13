@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project1/Rest.dart';
+import 'package:project1/Setting/account.dart';
 import 'package:project1/pay.dart';
 import 'sweet.dart';
 
@@ -344,7 +346,7 @@ class _contantPageState extends State<contantPage> {
         case 2:
           return cartwd(out);
         case 3:
-          return acc();
+          return account();
         default:
           return bodypart();
       }
@@ -363,19 +365,19 @@ class _contantPageState extends State<contantPage> {
                 unselectedFontSize: 2.5,
                 selectedItemColor: const Color.fromARGB(255, 1, 1, 1),
                 items: const [
-                BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home',
+                BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: 'Home',
                   backgroundColor: Color.fromARGB(2, 71, 20, 20),
                   
                 ),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.explore), label: 'Explore',
+                    icon: Icon(CupertinoIcons.search), label: 'Explore',
                   backgroundColor: Color.fromARGB(2, 71, 20, 20),
                 ),
-                BottomNavigationBarItem(icon: Icon(Icons.store), label: 'Cart',
+                BottomNavigationBarItem(icon: Icon(CupertinoIcons.cart), label: 'Cart',
                   backgroundColor: Color.fromARGB(2, 71, 20, 20),
                 ),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.account_box), label: 'Account',
+                    icon: Icon(Icons.account_circle), label: 'Account',
                   backgroundColor: Color.fromARGB(2, 71, 20, 20),
                 )
               ],

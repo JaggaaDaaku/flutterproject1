@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project1/Contantpage.dart';
 import 'package:project1/sweet.dart';
-import 'package:project1/switch.dart';
 
 
 class catscreen extends StatefulWidget {

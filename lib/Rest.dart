@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:project1/category_screen.dart';
 
@@ -10,7 +9,14 @@ class Rest extends StatefulWidget {
 }
 
 class _RestState extends State<Rest> {
-  var catg={1:'Sweet Dessert',2:'Spicy Dessert',3:'Snacks',4:'Cake',5:'Cold Drink',6:'Ice Cream',7:'Row Form'};
+  var catg={
+    1:'Sweet Dessert',
+    2:'Spicy Dessert',
+    3:'Snacks',
+    4:'Cake',
+    5:'Cold Drink',
+    6:'Ice Cream',
+    7:'Row Form'};
   var logo={
     1:'assets/icon/sweet.png',
     2:'assets/icon/spicy.png',
@@ -35,7 +41,24 @@ class _RestState extends State<Rest> {
           for(int i=1;i<=catg.length;i++)
           InkWell(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>category_screen(i: i,)));
+              Navigator.of(context).push(PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                         category_screen(i: i),
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      const begin = Offset(0.0, 1.0);
+                      const end = Offset.zero;
+                      const curve = Curves.ease;
+
+                      var tween = Tween(begin: begin, end: end)
+                          .chain(CurveTween(curve: curve));
+
+                      return SlideTransition(
+                        position: animation.drive(tween),
+                        child: child,
+                      );
+                    },
+                  ));
             },
             child: Container(
               clipBehavior: Clip.antiAlias,

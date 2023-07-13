@@ -1,11 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_swipe_detector/flutter_swipe_detector.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
-import 'package:project1/Contantpage.dart';
 import 'package:project1/carscreen.dart';
 import 'package:project1/sweet.dart';
-import 'package:project1/cart.dart';
 
 class category_screen extends StatefulWidget {
   const category_screen({super.key,required this.i});
