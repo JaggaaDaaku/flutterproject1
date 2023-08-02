@@ -16,10 +16,10 @@ class _category_screenState extends State<category_screen> {
   
   int i;
   _category_screenState(this.i);
-  
+  int lc = 0;
   
   var productdata = sweet;
-  data(int d) {
+  data(int d,int lc) {
     switch (d) {
       case 1:
         productdata = sweet;
@@ -43,7 +43,11 @@ class _category_screenState extends State<category_screen> {
         productdata = row;
         break;
     }
-    return catscreen(d: d,productdata: productdata,);
+    print(lc);
+    return catscreen(
+      d: d,
+      productdata: productdata,
+      cp:lc);
   }
 /*
 void initstate(){
@@ -51,18 +55,33 @@ void initstate(){
   }*/
   
   
+  
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print(lc);
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: LiquidSwipe(
+          onPageChangeCallback: (activePageIndex) {
+            print(activePageIndex);
+            setState(() {
+              lc = activePageIndex;  
+              print(lc);
+            });
+            
+          },
           initialPage: i-1,
           waveType: WaveType.liquidReveal,
           pages: [
             for(int ii=1;ii<=7;ii++)
-             data(ii)
+             data(ii,lc)
           ] 
         ),
       ),

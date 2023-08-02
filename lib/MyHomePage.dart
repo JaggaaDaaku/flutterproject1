@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project1/Contantpage.dart';
@@ -22,9 +23,21 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               height: MediaQuery.of(context).size.height*0.3,
               width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.symmetric(vertical: 50),
               child: Column(
               children: [
-                for (int i = 0; i < st.length; i++) Text(st[i],style: TextStyle(fontSize: MediaQuery.of(context).size.height*0.069),)
+                DefaultTextStyle(
+                  style: TextStyle(
+                    fontSize: 60,
+                    fontFamily: 'Audiowide'
+                  ), 
+                  child: AnimatedTextKit(
+                    repeatForever: true,
+                    pause: Duration(microseconds: 01),
+                    animatedTexts: [for (int i=0;i<st.length;i++) RotateAnimatedText(st[i])],
+                    )
+                  ),
+                //for (int i = 0; i < st.length; i++) Text(st[i],style: TextStyle(fontSize: MediaQuery.of(context).size.height*0.069),)
               ],
             )),
             Container(

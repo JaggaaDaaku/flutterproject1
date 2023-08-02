@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project1/Rest.dart';
 import 'package:project1/Setting/account.dart';
+import 'package:project1/explore.dart';
 import 'package:project1/pay.dart';
 import 'sweet.dart';
 
@@ -276,65 +277,8 @@ class _contantPageState extends State<contantPage> {
       
     }
 
-    Widget acc() {
-      return Container(
-        child: Column(
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.height * 0.5,
-              width: MediaQuery.of(context).size.width,
-              color: const Color.fromARGB(5, 232, 134, 134),
-              child: Text('Account'),
-            )
-          ],
-        ),
-      );
-    }
+    
 
-    Widget set() {
-      return Container(
-        child: Column(
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.height * 0.5,
-              width: MediaQuery.of(context).size.width,
-              color: const Color.fromARGB(5, 232, 134, 134),
-              child: Text('Settings'),
-            )
-          ],
-        ),
-      );
-    }
-
-    Widget explore() {
-      return Container(
-          height: MediaQuery.of(context).size.height * 0.09,
-          child: Row(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width * 0.85,
-                height: MediaQuery.of(context).size.height * 0.15,
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search...',
-                    border: OutlineInputBorder(),
-                  ),
-                  textInputAction: TextInputAction.search,
-                  onSubmitted: (value) {
-                    print('Searched for: $value');
-                  },
-                ),
-              ),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.1,
-                width: MediaQuery.of(context).size.width * 0.15,
-                child: Icon(Icons.search_rounded, size: 50),
-                decoration: BoxDecoration(color: Color.fromARGB(1, 1, 1, 1)),
-                //Navigator.pushNamed(context,'/result');
-              )
-            ],
-          ));
-    }
 
     //var bodyy = homePg();
     Widget bod() {

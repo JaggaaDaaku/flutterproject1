@@ -14,7 +14,7 @@ List<String> sweets=[
   //"Chocolate",
   //"Strawberry"
   'Gulab Jamun',
-  'Rus Gulle',
+  'Ras Gulle',
   'Kaju Katli',
   'Badam Katli',
   'Mawa Barfi',
@@ -134,7 +134,8 @@ List<String> rows=[
   'Milk',
   'Butter',
   'Curd',
-];List<int> rowprice=[60,350,350,50,600,70];
+];
+List<int> rowprice=[60,350,350,50,600,70];
 
 var sweet=<String,dynamic>{'Product':sweets,'Price':sweetsprice};
 var snack= <String, dynamic>{'Product':snacks,'Price':snackprice};
@@ -143,3 +144,59 @@ var cake= <String, dynamic>{'Product':cakes,'Price':cakeprice};
 var drink= <String, dynamic>{'Product':drinks,'Price':drinkprice};
 var ice= <String, dynamic>{'Product':ices,'Price':icePrice};
 var row= <String, dynamic>{'Product':rows,'Price':rowprice};
+
+class Product{
+  Map<String,dynamic> product={
+    'Sweets':sweet,
+    'Snacks':snack,
+    'Spicy':spicy,
+    'Cake':cake,
+    'Drink':drink,
+    'Ice Cream':ice,
+    'Row':row};
+
+  (String,int) searchProduct(String p){
+    String name='';
+    int price=0;
+    for(String key in product.keys){
+      if (product[key]['Product'].contains(p)){
+        for(int i=0;i<product[key]['Product'].length;i++){
+          if(product[key]['Product'][i].toString()==p){
+            name = product[key]['Product'][i].toString();
+            price = product[key]['Price'][i] as int;
+          }
+          
+        
+          //print('$name - Price: $price');//uncomment this to see the output of
+          //yield{'Name:$name';'Price:$price';};
+         
+        }
+          
+      }
+    }
+    return (name,price);
+  }
+  List<String> getProducts(){
+    List<String> l=[];
+    for (String key in product.keys) {
+        for (int i = 0; i < product[key]['Product'].length; i++) {
+          l.add(product[key]['Product'][i]);
+          //print('$name - Price: $price');//uncomment this to see the output of
+          //yield{'Name:$name';'Price:$price';};
+        
+      }
+    }
+    return l;
+    
+    
+    /*return [
+      {'name':'Sweet Product Name Here'},
+      {
+        "id": 987,
+        "title": "Second Item",
+        "description":
+        """Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quidem expedita
+        perferendis natus repellat eos molestias?""",
+      }];*/
+      }
+}

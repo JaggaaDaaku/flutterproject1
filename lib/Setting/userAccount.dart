@@ -11,6 +11,7 @@ class useraccount extends StatefulWidget {
 }
 
 class _useraccountState extends State<useraccount> {
+  bool pashow=true;
   @override
   Widget build(BuildContext context) {
     var idcontroller=TextEditingController();
@@ -53,10 +54,22 @@ class _useraccountState extends State<useraccount> {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
                 child: TextFormField(
+                  obscureText: pashow,
                   controller: pass,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Password'
+                    labelText: 'Password',
+                    suffix: IconButton(
+                      onPressed:(){
+                        setState(() {
+                          if(pashow){
+                            pashow=false;
+                          }else{
+                            pashow=true;
+                          }
+                        });
+                      } ,
+                      icon: Icon(pashow==true?Icons.remove_red_eye:Icons.password),)
                   ),
                 ),
               ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project1/category_screen.dart';
+import 'package:project1/test/category1.dart';
+
 
 class Rest extends StatefulWidget {
   const Rest({super.key});
@@ -10,21 +12,21 @@ class Rest extends StatefulWidget {
 
 class _RestState extends State<Rest> {
   var catg={
-    1:'Sweet Dessert',
-    2:'Spicy Dessert',
-    3:'Snacks',
-    4:'Cake',
-    5:'Cold Drink',
-    6:'Ice Cream',
-    7:'Row Form'};
+    0:'Sweet Dessert',
+    1:'Spicy Dessert',
+    2:'Snacks',
+    3:'Cake',
+    4:'Cold Drink',
+    5:'Ice Cream',
+    6:'Row Form'};
   var logo={
-    1:'assets/icon/sweet.png',
-    2:'assets/icon/spicy.png',
-    3:'assets/icon/snack.png',
-    4:'assets/icon/cake.png',
-    5:'assets/icon/drink.png',
-    6:'assets/icon/ice.png',
-    7:'assets/icon/row.png',
+    0:'assets/icon/sweet.png',
+    1:'assets/icon/spicy.png',
+    2:'assets/icon/snack.png',
+    3:'assets/icon/cake.png',
+    4:'assets/icon/drink.png',
+    5:'assets/icon/ice.png',
+    6:'assets/icon/row.png',
   };
   
   
@@ -38,17 +40,18 @@ class _RestState extends State<Rest> {
       child: SingleChildScrollView(
         child: Column(
         children:[
-          for(int i=1;i<=catg.length;i++)
+          for(int i=0;i<catg.length;i++)
           InkWell(
             onTap: (){
               Navigator.of(context).push(PageRouteBuilder(
                     pageBuilder: (context, animation, secondaryAnimation) =>
-                         category_screen(i: i),
+                    cat1(page:i),
+                         //category_screen(i: i),
                     transitionsBuilder:
                         (context, animation, secondaryAnimation, child) {
                       const begin = Offset(0.0, 1.0);
                       const end = Offset.zero;
-                      const curve = Curves.ease;
+                      const curve = Curves.bounceInOut;
 
                       var tween = Tween(begin: begin, end: end)
                           .chain(CurveTween(curve: curve));
