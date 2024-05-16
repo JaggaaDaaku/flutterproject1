@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:project1/sweet.dart';
+import 'package:project1/data.dart';
 
 
 class search extends StatefulWidget {
   const search({super.key, required this.value});
   final String value;
 
+  
+  
   @override
-  State<search> createState() => _searchState(value);
+  State<search> createState() => searchState(value);
 }
 
 
-class _searchState extends State<search> {
+class searchState extends State<search> {
   String value;
-  _searchState(this.value);
+  searchState(this.value);
   
   String product ='';
   int price=0;
@@ -29,12 +31,13 @@ class _searchState extends State<search> {
     super.initState();
     process();
     if(product ==''&&price==0){
-      print('object1');
+      
       return;
     }
   }
   @override
   Widget build(BuildContext context) {
+    
     return Container(
       child: Column(
         children: [

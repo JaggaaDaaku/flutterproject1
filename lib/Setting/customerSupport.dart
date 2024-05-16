@@ -10,6 +10,19 @@ class customerSupport extends StatefulWidget {
 class _customerSupportState extends State<customerSupport> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Scaffold(appBar: AppBar(title: Text("Customer Support"),
+      ),
+      body: Container(
+        child: Column(
+          children: [
+            Text("Contact us : *********"),
+            Text("Message : **********"),
+            Text("WhatsApp : **********"),
+          ],
+        )
+      ),
+      ),
+    );
   }
 }

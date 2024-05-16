@@ -4,7 +4,7 @@ import 'package:project1/Rest.dart';
 import 'package:project1/Setting/account.dart';
 import 'package:project1/explore.dart';
 import 'package:project1/pay.dart';
-import 'sweet.dart';
+import 'data.dart';
 
 class contantPage extends StatefulWidget {
   const contantPage({super.key});

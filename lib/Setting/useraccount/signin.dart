@@ -203,7 +203,8 @@ class _signinState extends State<signin> {
                                 );
                               });
                         }
-                      }, child: Text('Register'))
+                      }, child: Text('Register')
+                      )
             ],
           ),
           )

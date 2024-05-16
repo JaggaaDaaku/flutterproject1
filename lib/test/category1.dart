@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
-import 'package:project1/sweet.dart';
+import 'package:project1/data.dart';
 import 'package:project1/test/cats.dart';
 
 class cat1 extends StatefulWidget {

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:project1/exploreScreen.dart';
 import 'package:project1/search.dart';
-import 'package:project1/sweet.dart';
+import 'package:project1/data.dart';
 
 class explore extends StatefulWidget {
   const explore({super.key});
@@ -26,7 +26,6 @@ class _exploreState extends State<explore> {
   Widget build(BuildContext context) {
     Product p=new Product();
     change(String value) {
-      //super.initState();
       if (value.length > 0) {
         setState(() {
           status = true;
@@ -39,11 +38,7 @@ class _exploreState extends State<explore> {
       }
     }
     
-    @override
-    initState(){
-      super.initState();
-
-    }
+   
 
     Widget needdata() {
      switch(state){
@@ -52,7 +47,8 @@ class _exploreState extends State<explore> {
       default : return exploreScreen();
      }
     }
-    return Container(
+    return SingleChildScrollView(
+      child: Container(
       child: Column(
         children: [
           Form(
@@ -90,13 +86,12 @@ class _exploreState extends State<explore> {
                       )
                     ),
                     suggestionsCallback: (pattern){
-                      
                       if(textvalue.text.toString().isEmpty){
+                        change(textvalue.text.toString());
                         return[];
                       }else{
                         change(textvalue.text.toString());
                       }
-                      print(textvalue.text.toString());
                       List<String> match=<String>[];
                       match.addAll(p.getProducts());
                       match.retainWhere((element){
@@ -107,7 +102,7 @@ class _exploreState extends State<explore> {
                     
                     itemBuilder: (context,it){
                       
-                      print(it);
+                      
                       return Card(
                         child: Container(
                           child: Text(it.toString()),
@@ -115,7 +110,11 @@ class _exploreState extends State<explore> {
                       );
                     },
                     onSuggestionSelected: (suggestion) {
-                      search(value: suggestion);
+                      
+                      setState(() {
+                                  searchvalue = suggestion;
+                                  state = 1;
+                                });
                     },
                     ),
                 ],
@@ -138,7 +137,7 @@ class _exploreState extends State<explore> {
                                 });
                               },
                               child: Icon(CupertinoIcons.search,
-                                  size: 50),
+                                  size: 40),
                             )
 
                             //Navigator.pushNamed(context,'/result');
@@ -149,6 +148,7 @@ class _exploreState extends State<explore> {
         needdata()
         ],
       ),
+    ),
     );
   }
 }

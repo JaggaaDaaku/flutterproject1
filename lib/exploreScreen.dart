@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/sweet.dart';
+import 'package:project1/data.dart';
 
 class exploreScreen extends StatefulWidget {
   const exploreScreen({super.key});

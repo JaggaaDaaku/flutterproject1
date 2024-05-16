@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project1/Contantpage.dart';
-import 'package:project1/sweet.dart';
+import 'package:project1/data.dart';
 
 class cats extends StatefulWidget {
   const cats({super.key,required this.data});

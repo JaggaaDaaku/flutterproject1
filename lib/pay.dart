@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project1/paymentscreen.dart';
-import 'sweet.dart';
+import 'data.dart';
 
 
 class payment extends StatefulWidget {
