@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/Contantpage.dart';
-import 'package:project1/data.dart';
 
 class cats extends StatefulWidget {
-  const cats({super.key,required this.data});
+  const cats({super.key, required this.data});
   final data;
-
 
   @override
   State<cats> createState() => _catsState(data);
@@ -15,8 +12,7 @@ class cats extends StatefulWidget {
 class _catsState extends State<cats> {
   _catsState(this.data);
   final data;
-  
-  
+
   var catg = {
     1: 'Sweet Dessert',
     2: 'Spicy Dessert',
@@ -36,7 +32,8 @@ class _catsState extends State<cats> {
     7: 'assets/icon/row.png',
   };
   final Switch col = new Switch();
-  void add2cart(int j) {/*
+  void add2cart(int j) {
+    /*
     print(j);
     if (!cart['Product']!.contains(productdata['Product']?[j])) {
       cart['Product']!.add(productdata['Product']?[j]);
@@ -51,7 +48,6 @@ class _catsState extends State<cats> {
   }
 
   Widget body() {
-    
     return Scaffold(
       appBar: AppBar(),
       body: Container(
@@ -61,13 +57,11 @@ class _catsState extends State<cats> {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 20),
               alignment: AlignmentDirectional.centerStart,
-              decoration: BoxDecoration(color: col.colortray(0)
-              ),
+              decoration: BoxDecoration(color: col.colortray(0)),
               child: SingleChildScrollView(
                 child: Column(children: [
                   Text(data['Product'][0])
-                  
-                  
+
                   /*
                   for (int jj = 0; jj < productdata['Product']!.length; jj++)
                     Container(
@@ -85,20 +79,20 @@ class _catsState extends State<cats> {
                         )
                       ],
                     ))
-                */]
-                ),
+                */
+                ]),
               )),
         ),
       ),
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     return body();
   }
 }
+
 class Switch {
   Color colortray(int i) {
     switch (i) {

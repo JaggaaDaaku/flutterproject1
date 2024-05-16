@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:project1/data.dart';
-import 'package:project1/test/cats.dart';
 
 class cat1 extends StatefulWidget {
-  const cat1({super.key,required this.page});
+  const cat1({super.key, required this.page});
   final int page;
 
   @override
@@ -16,7 +15,6 @@ class cat1 extends StatefulWidget {
 class _cat1State extends State<cat1> {
   int page;
   _cat1State(this.page);
-  
 
   var title = {
     0: 'Sweet Dessert',
@@ -27,7 +25,7 @@ class _cat1State extends State<cat1> {
     5: 'Ice Cream',
     6: 'Row Form'
   };
-  var logo = <int,String>{
+  var logo = <int, String>{
     0: 'assets/icon/sweet.png',
     1: 'assets/icon/spicy.png',
     2: 'assets/icon/snack.png',
@@ -46,9 +44,10 @@ class _cat1State extends State<cat1> {
       print("This item is already in the cart");
     }
   }
-  ColorSwitch col=ColorSwitch();
+
+  ColorSwitch col = ColorSwitch();
   var productdata = sweet;
-  var cartdata=sweet;
+  var cartdata = sweet;
   data(int d) {
     switch (d) {
       case 0:
@@ -73,10 +72,10 @@ class _cat1State extends State<cat1> {
         productdata = row;
         break;
     }
-    void showT(String msg)=> Fluttertoast.showToast(msg: msg);
-    
+    void showT(String msg) => Fluttertoast.showToast(msg: msg);
+
     return //Container(child: Text(productdata['Product'][0]),);
-    Scaffold(
+        Scaffold(
       appBar: AppBar(
         title: Text("${title[page]}"),
         actions: [Image.asset("${logo[page]}")],
@@ -106,12 +105,23 @@ class _cat1State extends State<cat1> {
                               cart['Product']!.add(cartdata['Product']?[jj]);
                               cart['Price']!.add(cartdata['Price']?[jj]);
                               cart['Quantity']!.add(1);
-                              Fluttertoast.showToast(msg: "${cartdata['Product']?[jj]} is added in cart",toastLength: Toast.LENGTH_SHORT,gravity: ToastGravity.BOTTOM,timeInSecForIosWeb: 1,
+                              Fluttertoast.showToast(
+                                  msg:
+                                      "${cartdata['Product']?[jj]} is added in cart",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
                                   textColor: Colors.white,
                                   backgroundColor: Colors.grey);
                             } else {
                               print("This item is already in the cart");
-                              Fluttertoast.showToast(msg:"This item is already in the cart", toastLength: Toast.LENGTH_SHORT,gravity: ToastGravity.BOTTOM,timeInSecForIosWeb: 1,textColor: Colors.white,backgroundColor: Colors.grey);
+                              Fluttertoast.showToast(
+                                  msg: "This item is already in the cart",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  textColor: Colors.white,
+                                  backgroundColor: Colors.grey);
                             }
                           },
                           icon: Icon(CupertinoIcons.add),
@@ -131,14 +141,14 @@ class _cat1State extends State<cat1> {
     return SafeArea(
       child: Scaffold(
         body: LiquidSwipe(
-          initialPage: page,
-          enableLoop: false,
-          onPageChangeCallback: (activePageIndex) {
-            setState(() {
-              page = activePageIndex;
-              print(page);
-              switch(activePageIndex){
-                 case 0:
+            initialPage: page,
+            enableLoop: false,
+            onPageChangeCallback: (activePageIndex) {
+              setState(() {
+                page = activePageIndex;
+                print(page);
+                switch (activePageIndex) {
+                  case 0:
                     cartdata = sweet;
                     break;
                   case 1:
@@ -159,18 +169,17 @@ class _cat1State extends State<cat1> {
                   case 6:
                     cartdata = row;
                     break;
-              }
-            });
-          },
-          pages: [
-            for(int i=0;i<7;i++)
-              data(i),
-          ]
-          ),
+                }
+              });
+            },
+            pages: [
+              for (int i = 0; i < 7; i++) data(i),
+            ]),
       ),
     );
   }
 }
+
 class ColorSwitch {
   Color colortray(int i) {
     switch (i) {
